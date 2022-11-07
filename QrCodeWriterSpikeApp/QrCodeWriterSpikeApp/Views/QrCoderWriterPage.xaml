@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:converters ="clr-namespace:QrCodeWriterSpikeApp.Converters"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="QrCodeWriterSpikeApp.Views.QrCoderWriterPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:MemoryStreamToImageSourceConverter x:Key="MemoryStreamToImageSourceConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <StackLayout>
+        <Label>The below is a qr code generated using the QR Coder library using a bitmap array</Label>
+        <Label IsVisible="{Binding HasNoQrCodeValue, Mode=TwoWay}"> Please set a value in the Qr Code Details page.</Label>
+        <Image HeightRequest="400" WidthRequest="400" VerticalOptions="CenterAndExpand" 
+               HorizontalOptions="CenterAndExpand" 
+               IsVisible="{Binding HasQrCodeValue,Mode=TwoWay}"
+               Source="{Binding QrCodeSource, Mode = TwoWay, Converter={StaticResource MemoryStreamToImageSourceConverter}}"></Image>
+    </StackLayout>
+</ContentPage>

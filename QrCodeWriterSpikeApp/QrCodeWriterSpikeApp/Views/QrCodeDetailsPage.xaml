@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="QrCodeWriterSpikeApp.Views.QrCodeDetailsPage"
+             >
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <StackLayout>
+            <Label>Please copy a link and paste it below for qr code generation.</Label>
+            <Entry Text="{Binding QrCodeValue}" Placeholder="Qr code value goes in here" HorizontalOptions="FillAndExpand"></Entry>
+            <Button Command="{Binding GenerateQrCodeValueCommand}" Text="Generate QrCode based on link above"></Button>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

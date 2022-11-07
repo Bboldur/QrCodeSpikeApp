@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local ="clr-namespace:QrCodeWriterSpikeApp.Views"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             x:Class="QrCodeWriterSpikeApp.Views.MainPage"
+             Title="{Binding Title}"
+             android:TabbedPage.ToolbarPlacement="Bottom"
+             android:TabbedPage.IsSwipePagingEnabled="True"
+             BarBackgroundColor="#2196F3"
+             BarTextColor="White">
+    <NavigationPage Title="Qr code details" IconImageSource="schedule.png">
+        <x:Arguments>
+            <local:QrCodeDetailsPage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="QrCoder" IconImageSource="schedule.png">
+        <x:Arguments>
+            <local:QrCoderWriterPage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="ZXing" IconImageSource="schedule.png">
+        <x:Arguments>
+            <local:ZxingQrCodePage />
+        </x:Arguments>
+    </NavigationPage>
+</TabbedPage>

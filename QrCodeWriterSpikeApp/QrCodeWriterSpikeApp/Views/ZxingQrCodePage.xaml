@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com" xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="QrCodeWriterSpikeApp.Views.ZxingQrCodePage">
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <Label>The below is a qr code generated using the ZXingBarcode library</Label>
+        <Label IsVisible="{Binding HasNoQrCodeValue}">Please set a value in the Qr Code Details page.</Label>
+        <zxing:ZXingBarcodeImageView
+            HeightRequest="400"
+            WidthRequest="400"
+            IsVisible="{Binding HasQrCodeValue}"
+                                        BarcodeValue="{Binding QrCodeSource}"
+                                        BarcodeFormat="QR_CODE"
+                                       >
+
+            <zxing:ZXingBarcodeImageView.BarcodeOptions>
+                <zxcm:EncodingOptions
+                                                Width="400"
+                                                Height="400" />
+            </zxing:ZXingBarcodeImageView.BarcodeOptions>
+
+        </zxing:ZXingBarcodeImageView>
+    </StackLayout>
+  
+</ContentPage>
